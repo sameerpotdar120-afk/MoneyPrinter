@@ -1,0 +1,23 @@
+{
+  "name": "ira-ai-race-documentary",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio --no-open",
+    "render": "remotion render src/index.ts IraAiRace out/ira-ai-race-final.mp4 --codec=h264 --crf=18"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.506",
+    "@remotion/media": "4.0.506",
+    "@remotion/renderer": "4.0.506",
+    "@remotion/transitions": "4.0.506",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "remotion": "4.0.506"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.10",
+    "@types/react-dom": "19.1.7",
+    "typescript": "5.9.2"
+  }
+}
