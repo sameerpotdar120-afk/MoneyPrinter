@@ -1,0 +1,68 @@
+name: Render short from phone
+
+on:
+  push:
+    branches: [codex/android-cloud-render]
+  workflow_dispatch:
+    inputs:
+      language:
+        description: Narration language
+        required: true
+        default: hindi
+        type: choice
+        options: [hindi, english]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloud-short-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate cloud entry point
+        run: |
+          python -m compileall Backend/cloud_render.py
+          python -m unittest discover -s tests -p test_cloud_render.py -v
+
+  render:
+    if: github.event_name == 'workflow_dispatch'
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      NARRATION_LANGUAGE: ${{ inputs.language }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check stock footage access is configured
+        run: |
+          if [ -z "$PEXELS_API_KEY" ]; then
+            echo "::error::Add PEXELS_API_KEY in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install render dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-noto-core
+          python -m pip install "moviepy==2.2.1" "requests==2.31.0" "python-dotenv==1.0.0" "srt-equalizer==0.1.8" "termcolor==2.4.0" assemblyai edge-tts
+      - name: Render with MoneyPrinter
+        run: python Backend/cloud_render.py --manifest "docs/video-jobs/fz1073-${NARRATION_LANGUAGE}.json"
+      - name: Save downloadable video
+        uses: actions/upload-artifact@v4
+        with:
+          name: FZ1073-short-${{ inputs.language }}
+          path: cloud_output/
+          if-no-files-found: error
+          retention-days: 7
