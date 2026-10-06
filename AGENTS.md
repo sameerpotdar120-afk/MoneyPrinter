@@ -151,3 +151,12 @@ These conventions are inferred from current source and should guide new changes.
 - Avoid checking in generated media/output artifacts unless explicitly requested.
 - Before returning work, include what was validated and what was not validated.
 - When adding commands or tooling, update this file and `docs/` together.
+
+## 10) Optional Android cloud renderer
+
+`Backend/cloud_render.py` renders a reviewed manifest with fresh Pexels stock and
+Edge TTS using the existing video functions. It requires only PEXELS_API_KEY for
+that entry point, not Ollama or TIKTOK_SESSION_ID. See docs/android-cloud-render.md.
+Validate using `python -m unittest discover -s tests -p test_cloud_render.py -v`.
+The GitHub workflow runs validation on its setup branch; rendering is manual only.
+Always retain the illustrative-stock label and source/creator credits.

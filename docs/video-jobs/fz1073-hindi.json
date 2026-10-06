@@ -1,0 +1,32 @@
+{
+  "research_as_of": "2026-10-05",
+  "voice": "hi-IN-MadhurNeural",
+  "font": "/usr/share/fonts/truetype/noto/NotoSansDevanagari-Bold.ttf",
+  "sentences": [
+    "उड़ते विमान में कॉकपिट का एक दरवाज़ा खुला। और एक बड़ी दुर्घटना टल गई।",
+    "तीस सितंबर, दो हज़ार छब्बीस। फ्लाईदुबई की फ्लाइट एफ ज़ेड दस तिहत्तर, दुबई से तेल अवीव जा रही थी।",
+    "यूएई के जांच अधिकारियों के मुताबिक, सह-पायलट ने कैप्टन पर इमरजेंसी कुल्हाड़ी से हमला किया और विमान का नियंत्रण लेने की कोशिश की।",
+    "विमान तेजी से नीचे आया। यात्रियों को पहले लगा कि तेज टर्बुलेंस है।",
+    "लेकिन रॉयटर्स की रिपोर्ट के मुताबिक, घायल कैप्टन ने कॉकपिट का दरवाज़ा खोल दिया।",
+    "यात्री और क्रू अंदर पहुंचे। उन्होंने हमलावर को काबू में किया।",
+    "विमान में मौजूद अतिरिक्त पायलटों ने नियंत्रण संभाला और विमान को सऊदी अरब के तबूक ले गए।",
+    "वहां सुरक्षित लैंडिंग हुई। एयरलाइन ने बताया कि सभी यात्री और क्रू सुरक्षित थे।",
+    "यूएई अधिकारियों ने इसे आतंकी हमले की कोशिश बताया। जांच अभी जारी है।",
+    "इस उड़ान को बचाने में कैप्टन, मदद करने वाले लोगों और सुरक्षित लैंडिंग कराने वाले पायलटों का योगदान था।"
+  ],
+  "search_terms": [
+    "airplane take off",
+    "airplane wing clouds",
+    "airplane cockpit",
+    "airplane passengers",
+    "airplane cabin",
+    "pilot airplane",
+    "airplane landing",
+    "airport ambulance"
+  ],
+  "sources": [
+    "https://news.flydubai.com/updates-on-fz-1073-dxb-tlv-on-30-september-2026",
+    "https://www.reuters.com/world/pilot-brawl-then-rapid-descent-passengers-recount-chaos-flydubai-flight-2026-09-30/",
+    "https://www.reuters.com/business/aerospace-defense/flydubai-co-pilot-attacked-pilot-with-axe-attempted-terrorist-attack-uae-says-2026-10-03/"
+  ]
+}
